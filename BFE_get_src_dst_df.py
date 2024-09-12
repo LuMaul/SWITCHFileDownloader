@@ -27,11 +27,6 @@ class BFE_get_src_dst_df:
         logger.info(f" -> found {len(all_files)} files in '{path}'")
         return all_files
     
-    @staticmethod
-    def _extract_box_name_from_path(root:str) -> str:
-        # walks through every element of the path and takes the one containg 'box'
-        path_parts = os.path.normpath(root).split(os.sep) # [list, of, every, folder]
-        return next((part for part in path_parts if 'box' in part), '')
 
     @classmethod
     def _dropNoGzFiles(cls, df:pd.DataFrame, file_col:str) -> pd.DataFrame:
@@ -71,6 +66,14 @@ class BFE_get_src_dst_df:
             'dates':pd.date_range(start=start, end=end, freq=freq, tz=self._DEFAULT_TIME_ZONE)
             })
         return date_df
+    
+
+    @staticmethod
+    def _extract_box_name_from_path(root:str) -> str:
+        # walks through every element of the path and takes the one containg 'box'
+        path_parts = os.path.normpath(root).split(os.sep) # [list, of, every, folder]
+        return next((part for part in path_parts if 'box' in part), '')
+    
 
     @staticmethod
     def _getHDRFilename(datetime: dt.datetime) -> str:
@@ -183,7 +186,7 @@ class BFE_get_src_dst_df:
 
 
 if __name__ == '__main__':
-    BFE_get_src_dst_df.get_files(root='raw')
+    BFE_get_src_dst_df.get_files(root='/mnt/f/bfe_analysis/raw')
 
     df_getter = BFE_get_src_dst_df()
     mydf = df_getter.to_df(boxNr=1, which='hdr', start=dt.datetime(2024, 9, 1))
