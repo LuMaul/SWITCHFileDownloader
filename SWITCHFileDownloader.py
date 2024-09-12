@@ -5,11 +5,9 @@ from SWITCHlogger import logger
 class SWITCHFileDownloader:
 
     _auth = None
-
-    def __init__(self) -> None:
-        self._src_dst_df = None
-        self._src_col = None
-        self._dst_col = None
+    _src_dst_df = None
+    _src_col = None
+    _dst_col = None
 
     def __repr__(self) -> str:
         repr_str = (
@@ -31,13 +29,15 @@ class SWITCHFileDownloader:
                 )
 
 
-    def set_SRC_DST_df(self, src_dst_df:pd.DataFrame) -> None:
-        self._src_dst_df = src_dst_df
+    @classmethod
+    def set_SRC_DST_df(cls, src_dst_df:pd.DataFrame) -> None:
+        cls._src_dst_df = src_dst_df
 
 
-    def set_src_dst_column_names(self, src_col:str, dst_col:str) -> None:
-        self._src_col = src_col
-        self._dst_col = dst_col
+    @classmethod
+    def set_src_dst_column_names(cls, src_col:str, dst_col:str) -> None:
+        cls._src_col = src_col
+        cls._dst_col = dst_col
 
 
     def _downloadFile(self, row:pd.Series) -> None:
@@ -87,9 +87,24 @@ class SWITCHFileDownloader:
                     )
             exit()
 
+        def KeyInDf(attribute:str) -> None:
+            if attributes[attribute] not in self._src_dst_df:
+                logger.error(
+                    f"... col name {attribute} does not exist. You must choose from "
+                    f"{self._src_dst_df.columns=}"
+                    )
+                exit()
+                
+        KeyInDf(f'{self._src_col=}')
+        KeyInDf(f'{self._dst_col=}')
+
 
     def go(self) -> None:
         self._checkup()
+        logger.info(
+            f"... downloading {len(self._src_dst_df)} files "
+            "from '{self._src_col}' to '{self._dst_col}'"
+            )
         df = self._src_dst_df.parallel_apply(self._downloadFile, axis=1)
 
 
