@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
 ## 1. Install Conda (if not already installed)
 
-If you don't have Conda installed, you can download and install it from [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://www.anaconda.com/products/distribution).
+If you don't have Conda installed, you can download and install it from [Miniconda](https://docs.conda.io/en/latest/miniconda.html](https://docs.anaconda.com/miniconda/miniconda-install/) or [Anaconda](https://docs.anaconda.com/anaconda/install/).
 
 ## 2. Create a New Conda Environment
 
