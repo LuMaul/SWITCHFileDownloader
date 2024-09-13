@@ -24,8 +24,9 @@
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-repo/SWITCHFileDownloader.git
+   git clone https://github.com/LuMaul/SWITCHFileDownloader.git
    cd SWITCHFileDownloader
+   ```
 
 ## Usage
 
