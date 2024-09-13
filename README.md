@@ -33,14 +33,14 @@
 
 ## Usage
 
-### 1. Set Login Credentials
+### Set Login Credentials
 The class requires login credentials for authentication. Use the `set_login()` method to provide your `SWITCHemail` and `SWITCHpw`:
 
 ```python
 SWITCHFileDownloader.set_login(SWITCHemail='your_email', SWITCHpw='your_password')
 ```
 
-### 2. Set Source-Destination DataFrame
+### Set Source-Destination DataFrame
 The source-destination mappings need to be provided in a DataFrame. Use the `set_SRC_DST_df()` method to load this DataFrame:
 
 ```python
@@ -48,14 +48,14 @@ df = pd.read_csv('path_to_your_csv_file.csv')
 SWITCHFileDownloader.set_SRC_DST_df(df)
 ```
 
-### 3. Set Source and Destination Columns
+### Set Source and Destination Columns
 Specify which columns in your DataFrame represent the source URL and the destination file path:
 
 ```python
 SWITCHFileDownloader.set_src_dst_column_names(src_col='source_column', dst_col='destination_column')
 ```
 
-### 4. Download Files
+### Download Files
 Once everything is set up, call the `go()` method to start the download process:
 
 ```python
@@ -107,13 +107,13 @@ if __name__ == "__main__":
 - `os`
 - `logging`
 
-# Installing a Conda Environment and Pandarallel Package
+## Installing a Conda Environment and Pandarallel Package
 
-## 1. Install Conda (if not already installed)
+### Install Conda (if not already installed)
 
-If you don't have Conda installed, you can download and install it from [Miniconda](https://docs.conda.io/en/latest/miniconda.html](https://docs.anaconda.com/miniconda/miniconda-install/) or [Anaconda](https://docs.anaconda.com/anaconda/install/).
+If you don't have Conda installed, you can download and install it from [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://docs.anaconda.com/anaconda/install/).
 
-## 2. Create a New Conda Environment
+### Create a New Conda Environment
 
 To create a new Conda environment, use the following command. Replace `myenv` with your desired environment name:
 
@@ -125,6 +125,3 @@ Activate the new environment:
 ```bash
 conda activate myenv
 ```
-
-
-
