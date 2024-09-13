@@ -24,6 +24,21 @@ class SWITCHFileDownloader:
 
     @classmethod
     def set_login(cls, SWITCHemail:str, SWITCHpw:str) -> None:
+        """Sets the login credentials for the class.
+        
+        Parameters
+        ----------
+        cls : type
+            The class to which the login credentials are being set.
+        SWITCHemail : str
+            The email address used for login.
+        SWITCHpw : str
+            The password used for login.
+        
+        Returns
+        -------
+        None
+        """
         cls._auth = HTTPBasicAuth(
             SWITCHemail, SWITCHpw
                 )
@@ -31,11 +46,40 @@ class SWITCHFileDownloader:
 
     @classmethod
     def set_SRC_DST_df(cls, src_dst_df:pd.DataFrame) -> None:
+        """Sets the source-destination DataFrame for the class.
+        
+        Parameters
+        ----------
+        cls : type
+            The class to which the DataFrame is being assigned.
+        src_dst_df : pd.DataFrame
+            The DataFrame containing source-destination data.
+        
+        Returns
+        -------
+        None
+        """
         cls._src_dst_df = src_dst_df
 
 
     @classmethod
     def set_src_dst_column_names(cls, src_col:str, dst_col:str) -> None:
+        """Sets the source and destination column names for the class.
+        
+        Parameters
+        ----------
+        cls : type
+            The class on which to set the column names.
+        src_col : str
+            The name of the source column in the given source-destination DataFrame.
+        dst_col : str
+            The name of the destination column in the given source-destination DataFrame.
+        
+        Returns
+        -------
+        None
+        """
+        
         cls._src_col = src_col
         cls._dst_col = dst_col
 
@@ -100,6 +144,16 @@ class SWITCHFileDownloader:
 
 
     def go(self) -> None:
+        """Initiates the download process for files specified in the dataframe.
+        
+        This method logs the number of files to be downloaded and their source
+        and destination columns. It then applies the `_downloadFile` method
+        to each row of the dataframe in parallel to download the files.
+        
+        Returns
+        -------
+        None
+        """
         self._checkup()
         logger.info(
             f"... downloading {len(self._src_dst_df)} files "
