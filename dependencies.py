@@ -29,8 +29,6 @@ install_pandarallel()
 
 try:
     from pandarallel import pandarallel
+    pandarallel.initialize(progress_bar=True, verbose=0)
 except ImportError:
     print("Pandarallel is not available.")
-
-pandarallel.initialize(progress_bar=True, verbose=0)
-
