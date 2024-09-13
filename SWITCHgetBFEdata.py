@@ -2,8 +2,8 @@ from dependencies import *
 from SWITCHlogger import logger
 
 
-class BFE_get_src_dst_df:
-
+class BFEdata:
+    
     _root = None
     _loc_file_col = None
     _df = None
@@ -15,6 +15,7 @@ class BFE_get_src_dst_df:
 
     def __init__(self) -> None:
         super().__init__()
+        
 
 
     @classmethod
@@ -48,6 +49,35 @@ class BFE_get_src_dst_df:
 
     @classmethod
     def get_files(cls, root:str):
+        """Gets a DataFrame of files from a specified root directory, filters,
+        and processes them.
+        
+        Parameters
+        ----------
+        cls : class
+            The class instance that is handling file operations.
+        root : str
+            The root directory from which files are to be fetched.
+        
+        Notes
+        -----
+        This method sets the `_root` attribute of the class instance to the
+        specified root directory, walks through existing files in the directory,
+        and processes them to filter out non-gzip files. It also extracts base
+        box names from the files and updates the class instance's `_df` attribute
+        with the processed DataFrame. If the directory is empty, logs an
+        error and exits the program.
+        
+        Raises
+        ------
+        SystemExit
+            If the specified directory is empty, the program will log an error and exit.
+        
+        Examples
+        --------
+        >>> MyClass.get_files('/path/to/directory')
+        """
+        
         cls._root = root
         loc_file_col = f"files in {root}"
 
@@ -164,6 +194,37 @@ class BFE_get_src_dst_df:
             start:dt.datetime,
             end:dt.datetime=dt.datetime.today()
             ):
+        """Converts specified data types into a DataFrame for a given box number
+        and date range.
+        
+        Parameters
+        ----------
+        boxNr : int
+            The specific box number to query data for.
+        which : str or list of str
+            Specifies the type of data to retrieve. Options include 'hdr', 'tem', or 'irr'.
+        start : datetime.datetime
+            The start date for the data retrieval.
+        end : datetime.datetime, optional
+            The end date for the data retrieval. Defaults to today's date.
+        
+        Returns
+        -------
+        DataFrame
+            A DataFrame containing the download paths for the requested data files.
+        
+        Notes
+        -----
+        This function internally calls other methods to guess filenames based on
+        the date range, remove existing files from the list, and add download paths.
+        
+        Examples
+        --------
+        >>> to_df(1, 'hdr', datetime.datetime(2021, 1, 1), datetime.datetime(2021, 1, 31))
+            Returns a DataFrame with download paths for HDR files for box
+            number 1 from January 2021.
+        """
+        
         
         if 'hdr' in which:
             hdr_file_df = self._guessFilenames(start, end, '15min', self._getHDRFilename)
@@ -186,8 +247,8 @@ class BFE_get_src_dst_df:
 
 
 if __name__ == '__main__':
-    BFE_get_src_dst_df.get_files(root='/mnt/f/bfe_analysis/raw')
+    BFEdata.get_files(root='/mnt/f/bfe_analysis/raw')
 
-    df_getter = BFE_get_src_dst_df()
+    df_getter = BFEdata()
     mydf = df_getter.to_df(boxNr=1, which='hdr', start=dt.datetime(2024, 9, 1))
     print(mydf)
