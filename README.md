@@ -102,3 +102,25 @@ if __name__ == "__main__":
 - `requests`
 - `os`
 - `logging`
+
+# Installing a Conda Environment and Pandarallel Package
+
+## 1. Install Conda (if not already installed)
+
+If you don't have Conda installed, you can download and install it from [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://www.anaconda.com/products/distribution).
+
+## 2. Create a New Conda Environment
+
+To create a new Conda environment, use the following command. Replace `myenv` with your desired environment name:
+
+```bash
+conda create --name myenv anaconda
+```
+
+Activate the new environment:
+```bash
+conda activate myenv
+```
+
+
+
