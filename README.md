@@ -6,12 +6,15 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Set login credentials](#set-login-credentials)
-  - [Set source-destination DataFrame](#set-source-destination-dataframe)
-  - [Set source and destination columns](#set-source-and-destination-columns)
-  - [Download files](#download-files)
+  - [Set Login Credentials](#set-login-credentials)
+  - [Set Source-Destination DataFrame](#set-source-destination-dataframe)
+  - [Set Source and Destination Columns](#set-source-and-destination-columns)
+  - [Download Files](#download-files)
 - [Example](#example)
 - [Requirements](#requirements)
+- [Installing a Conda Environment and Pandarallel Package](#installing-a-conda-environment-and-pandarallel-package)
+  - [Install Conda](#install-conda-if-not-already-installed)
+  - [Create a New Conda Environment](#create-a-new-conda-environment)
 
 ## Features
 
