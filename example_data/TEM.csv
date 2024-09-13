@@ -1,0 +1,13 @@
+dates,guessed file names,abs dst path,SWITCH url
+2024-09-12 00:00:00+02:00,temperature-20240912.gz,/mnt/e/bfe_analysis/raw/box1/tem/temperature-20240912.gz,https://drive.switch.ch/remote.php/webdav/Spool/box1/archive/temperature-20240912.gz
+2024-09-13 00:00:00+02:00,temperature-20240913.gz,/mnt/e/bfe_analysis/raw/box1/tem/temperature-20240913.gz,https://drive.switch.ch/remote.php/webdav/Spool/box1/archive/temperature-20240913.gz
+2024-09-12 00:00:00+02:00,temperature-20240912.gz,/mnt/e/bfe_analysis/raw/box2/tem/temperature-20240912.gz,https://drive.switch.ch/remote.php/webdav/Spool/box2/archive/temperature-20240912.gz
+2024-09-13 00:00:00+02:00,temperature-20240913.gz,/mnt/e/bfe_analysis/raw/box2/tem/temperature-20240913.gz,https://drive.switch.ch/remote.php/webdav/Spool/box2/archive/temperature-20240913.gz
+2024-09-12 00:00:00+02:00,temperature-20240912.gz,/mnt/e/bfe_analysis/raw/box3/tem/temperature-20240912.gz,https://drive.switch.ch/remote.php/webdav/Spool/box3/archive/temperature-20240912.gz
+2024-09-13 00:00:00+02:00,temperature-20240913.gz,/mnt/e/bfe_analysis/raw/box3/tem/temperature-20240913.gz,https://drive.switch.ch/remote.php/webdav/Spool/box3/archive/temperature-20240913.gz
+2024-09-12 00:00:00+02:00,temperature-20240912.gz,/mnt/e/bfe_analysis/raw/box4/tem/temperature-20240912.gz,https://drive.switch.ch/remote.php/webdav/Spool/box4/archive/temperature-20240912.gz
+2024-09-13 00:00:00+02:00,temperature-20240913.gz,/mnt/e/bfe_analysis/raw/box4/tem/temperature-20240913.gz,https://drive.switch.ch/remote.php/webdav/Spool/box4/archive/temperature-20240913.gz
+2024-09-12 00:00:00+02:00,temperature-20240912.gz,/mnt/e/bfe_analysis/raw/box5/tem/temperature-20240912.gz,https://drive.switch.ch/remote.php/webdav/Spool/box5/archive/temperature-20240912.gz
+2024-09-13 00:00:00+02:00,temperature-20240913.gz,/mnt/e/bfe_analysis/raw/box5/tem/temperature-20240913.gz,https://drive.switch.ch/remote.php/webdav/Spool/box5/archive/temperature-20240913.gz
+2024-09-12 00:00:00+02:00,temperature-20240912.gz,/mnt/e/bfe_analysis/raw/box6/tem/temperature-20240912.gz,https://drive.switch.ch/remote.php/webdav/Spool/box6/archive/temperature-20240912.gz
+2024-09-13 00:00:00+02:00,temperature-20240913.gz,/mnt/e/bfe_analysis/raw/box6/tem/temperature-20240913.gz,https://drive.switch.ch/remote.php/webdav/Spool/box6/archive/temperature-20240913.gz
