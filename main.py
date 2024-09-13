@@ -1,52 +1,34 @@
 from SWITCHFileDownloader import SWITCHFileDownloader
-from BFE_get_src_dst_df import BFE_get_src_dst_df
-from dependencies import *
+from dependencies import os, pd
 
 
 
 def main():
 
-    START = dt.datetime(2024, 9, 1)
-
-    BFE_get_src_dst_df.get_files(root='/mnt/f/bfe_analysis/raw')
-
+    MAIL = 'your_email'
+    PW = 'your_password'
+    
+    SRC_COL_NAME = 'SWITCH url'
+    DST_COL_NAME = 'abs dst path'
+    
+    
     SWITCHFileDownloader.set_login(
-        SWITCHemail='your_email',
-        SWITCHpw='your_pw'
+        SWITCHemail=MAIL,
+        SWITCHpw=PW
     )
-
 
     SWITCHFileDownloader.set_src_dst_column_names(
-        src_col='SWITCH url',
-        dst_col='abs dst path'
+        src_col=SRC_COL_NAME,
+        dst_col=DST_COL_NAME
     )
 
-    df_getter = BFE_get_src_dst_df()
     downloader = SWITCHFileDownloader()
 
-    for boxNr in range(1,7):
+    for source_file in ['HDR.csv', 'TEM.csv', 'IRR.csv']:
 
-        src_dst_df = df_getter.to_df(
-            boxNr=boxNr, which='hdr', start=START
-            )
-        
-        SWITCHFileDownloader.set_SRC_DST_df(src_dst_df)
+        SRC_DST_DF = pd.read_csv(os.path.join('example_data', source_file))
+        downloader.set_SRC_DST_df(SRC_DST_DF)
         downloader.go()
 
-
-        src_dst_df = df_getter.to_df(
-            boxNr=boxNr, which='tem', start=START
-            )
-        
-        SWITCHFileDownloader.set_SRC_DST_df(src_dst_df)
-        downloader.go()
-
-
-    src_dst_df = df_getter.to_df(
-        boxNr=1, which='irr', start=START
-    )
-    SWITCHFileDownloader.set_SRC_DST_df(src_dst_df)
-    downloader.go()
-
-
+    
 main()
