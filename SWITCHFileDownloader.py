@@ -157,7 +157,7 @@ class SWITCHFileDownloader:
         self._checkup()
         logger.info(
             f"... downloading {len(self._src_dst_df)} files "
-            "from '{self._src_col}' to '{self._dst_col}'"
+            f"from '{self._src_col=}' to '{self._dst_col=}'"
             )
         df = self._src_dst_df.parallel_apply(self._downloadFile, axis=1)
 
